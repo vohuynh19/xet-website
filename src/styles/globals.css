@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Aktiv Grotesk Extended';
+  src: url('/fonts/Aktiv_Grotesk_Ex_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk Extended';
+  src: url('/fonts/Aktiv_Grotesk_Ex_Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk Extended';
+  src: url('/fonts/Aktiv_Grotesk_Ex_SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk Extended';
+  src: url('/fonts/Aktiv_Grotesk_Ex_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,5 +45,14 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aktiv Grotesk Extended', Arial, Helvetica, sans-serif;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }

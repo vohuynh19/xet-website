@@ -1,0 +1,22 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2C3E50"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <pattern id="overlay" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#000000" fill-opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg-gradient)"/>
+  <rect width="1920" height="1080" fill="url(#overlay)"/>
+  <g opacity="0.1">
+    <circle cx="960" cy="540" r="400" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="960" cy="540" r="300" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="960" cy="540" r="200" stroke="#FFFFFF" stroke-width="2"/>
+  </g>
+  <g opacity="0.15">
+    <path d="M860 440 L1060 640" stroke="#FFFFFF" stroke-width="4"/>
+    <path d="M1060 440 L860 640" stroke="#FFFFFF" stroke-width="4"/>
+  </g>
+</svg>
