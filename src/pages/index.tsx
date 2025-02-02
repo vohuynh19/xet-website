@@ -221,10 +221,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-black">
             <div>
-              <h3 className="font-bold mb-4">DINNER 7 DAYS</h3>
-              <p>5:30pm-9:30pm</p>
-              <h3 className="font-bold mb-4 mt-6">LUNCH THURSDAY - SATURDAY</h3>
-              <p>12:00pm-2:30pm</p>
+              <h3 className="font-bold mb-4">DINE & WINE EVERYDAY</h3>
+              <p>7:00am-10:00pm</p>
+              <h3 className="font-bold mb-4 mt-6">MAM VIET EVERYDAY</h3>
+              <p>7:00am-2:30pm</p>
               <button className="mt-6 border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition-colors">
                 BOOK NOW
               </button>
@@ -232,17 +232,20 @@ export default function Home() {
 
             <div>
               <h3 className="font-bold mb-4">CONTACT US</h3>
-              <p className="mb-2">1 Genge St,</p>
-              <p className="mb-4">Canberra ACT 2601</p>
-              <a href="tel:0261712092" className="hover:underline">
-                02 6171 2092
+              <p className="mb-2">32 Luong The Vinh St,</p>
+              <p className="mb-4">Phan Thiet, Binh Thuan</p>
+              <a href="tel:0941344673" className="hover:underline">
+                0941 344 673
               </a>
             </div>
 
             <div>
               <h3 className="font-bold mb-4">{`LET'S GET SOCIAL`}</h3>
               <div className="flex space-x-4">
-                <a href="#" className="hover:opacity-70">
+                <a
+                  href="https://www.instagram.com/xet.dineandwine"
+                  className="hover:opacity-70"
+                >
                   <Image
                     src="/instagram.svg"
                     alt="Instagram"
@@ -250,7 +253,10 @@ export default function Home() {
                     height={24}
                   />
                 </a>
-                <a href="#" className="hover:opacity-70">
+                <a
+                  href="https://www.facebook.com/xetpremiumdineandwine"
+                  className="hover:opacity-70"
+                >
                   <Image
                     src="/facebook.svg"
                     alt="Facebook"
@@ -281,17 +287,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
-                    Gift Cards
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
                     Gallery
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
                   </a>
                 </li>
               </ul>
