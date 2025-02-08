@@ -1,15 +1,30 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const bannerImages = ["/home/banner-1.jpg", "/home/banner-2.jpg"];
+const bannerImages = ["/images/0.JPG", "/images/1.JPG", "/images/2.JPG"];
+
+const footerImages = [
+  "/images/space-5.JPG",
+  "/images/space-1.JPG",
+  "/images/space-2.JPG",
+  "/images/space-6.JPG",
+];
 
 export default function Home() {
   const [showBanner, setShowBanner] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNavBackground, setShowNavBackground] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleCloseBanner = () => {
     setShowBanner(false);
     localStorage.setItem("showBanner", "false");
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
@@ -17,21 +32,52 @@ export default function Home() {
       setCurrentImageIndex(
         (prevIndex) => (prevIndex + 1) % bannerImages.length
       );
-    }, 5000); // Change image every 5 seconds
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY === 0) {
+        setShowNavBackground(false);
+        setLastScrollY(currentScrollY);
+      } else {
+        setShowNavBackground(
+          (currentScrollY < lastScrollY && currentScrollY > 50) ||
+            currentScrollY === 0
+        );
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#F1E2D1]">
       {/* Notification Banner */}
       {showBanner && (
-        <div className="fixed bottom-0 left-0 w-full bg-black/50 text-[#D2B48C] py-2 px-4 text-center text-sm md:text-base z-50 flex items-center backdrop-blur-sm">
-          <div className="flex-1" />
-          <div className="flex-[2] text-center">
+        <div className="fixed bottom-0 left-0 w-full bg-black/50 text-[#D2B48C] py-1.5 md:py-2 px-3 md:px-4 text-center text-xs md:text-sm z-50 flex items-center justify-between backdrop-blur-sm">
+          <div className="flex-1 max-w-[40px]" />
+          <div className="flex-1 text-center">
             NOW OPEN | EVERYDAY FROM 07:00 AM TO 10:00 PM
           </div>
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-end max-w-[40px]">
             <button
               onClick={handleCloseBanner}
               className="text-[#D2B48C] hover:text-gray-200 transition-colors"
@@ -47,7 +93,6 @@ export default function Home() {
                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                   clipRule="evenodd"
                 />
-                H
               </svg>
             </button>
           </div>
@@ -55,24 +100,39 @@ export default function Home() {
       )}
       {/* Navigation */}
       <nav
-        className={`absolute top-0 left-0 w-full z-40 flex justify-between items-center px-4 md:px-8 py-4`}
+        className={`fixed top-0 left-0 w-full z-[1001] flex justify-between items-center px-4 md:px-8 py-4 transition-all duration-300 ${
+          showNavBackground && !isMenuOpen ? "bg-black/50 backdrop-blur-sm" : ""
+        }`}
       >
-        <button className="hidden md:block text-white border border-white px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-base rounded-full hover:bg-white hover:text-black transition-colors">
+        <button
+          className={`hidden md:block text-white border border-white px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-base rounded-full hover:bg-white hover:text-black transition-colors transform transition-transform duration-300 ${
+            isMenuOpen
+              ? "opacity-0 -translate-y-4"
+              : "opacity-100 translate-y-0"
+          }`}
+        >
           BOOK NOW
         </button>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Image
-            src="/logo.png"
-            alt="XET. Logo"
-            width={120}
-            height={48}
-            className="object-contain"
-          />
+          <Link href="/" className="cursor-pointer">
+            <Image
+              src="/logo.png"
+              alt="XET. Logo"
+              width={120}
+              height={48}
+              className="object-contain"
+            />
+          </Link>
         </div>
-        <button className="text-white hover:text-gray-300 transition-colors">
+        <button
+          onClick={toggleMenu}
+          className="text-white hover:text-gray-300 transition-colors relative w-8 h-8"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 md:h-8 md:w-8"
+            className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${
+              isMenuOpen ? "opacity-0" : "opacity-100"
+            }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -84,8 +144,85 @@ export default function Home() {
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${
+              isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </button>
       </nav>
+
+      {/* Full Screen Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-black z-[1000] flex flex-col items-center justify-center text-white transition-all duration-300 ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="absolute inset-0 -z-10 opacity-40">
+          <Image
+            src="/images/menu.jpg"
+            alt="Menu background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="text-center space-y-6">
+          <a
+            href="#"
+            className="block text-2xl hover:text-gray-300 transition-colors"
+          >
+            MENU
+          </a>
+          <a
+            href="#"
+            className="block text-2xl hover:text-gray-300 transition-colors"
+          >
+            SET MENUS
+          </a>
+          <a
+            href="#"
+            className="block text-2xl hover:text-gray-300 transition-colors"
+          >
+            OUR SPACES
+          </a>
+          <a
+            href="#"
+            className="block text-2xl hover:text-gray-300 transition-colors"
+          >
+            GALLERY
+          </a>
+          <a
+            href="#"
+            className="block text-2xl hover:text-gray-300 transition-colors"
+          >
+            CONTACT
+          </a>
+
+          <div
+            style={{
+              height: 24,
+            }}
+          ></div>
+
+          <button className="border border-white px-8 py-3 text-lg rounded-full hover:bg-white hover:text-black transition-colors">
+            BOOK NOW
+          </button>
+        </div>
+      </div>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-black/70 text-white overflow-hidden">
         {bannerImages.map((image, index) => (
@@ -149,24 +286,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-20 bg-[#F1E2D1]">
+        <div className="max-w-6xl mx-auto space-y-20 bg-[#F1E2D1] px-4 lg:px-0">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[540px] rounded-lg overflow-hidden">
+            <div className="relative h-[300px] md:h-[540px] rounded-lg overflow-hidden order-1 md:order-1">
               <Image
-                src="/home/banner-1.jpg"
-                alt="Public Bar ambiance"
+                src="/images/menu.JPG"
+                alt="OUR SPACE ambiance"
                 fill
                 className="object-cover"
               />
             </div>
-            <div className="text-black space-y-6">
-              <h2 className="text-3xl font-bold">PUBLIC BAR</h2>
+            <div className="text-black space-y-6 order-2 md:order-2">
+              <h2 className="text-3xl font-bold">OUR SPACES</h2>
               <p className="text-lg leading-relaxed">
-                {`A vibrant public bar & eatery in Canberra CBD that offers a
-                spacious outdoor terrace and menu of creatively crafted
-                Asian-inspired cocktails and delicious snacks. Whether you're
-                seeking a well-deserved drink after work or a memorable night
-                out with friends, our Public Bar has it all!`}
+                {`A fusion restaurant in Phan Thiet offering a spacious and stylish atmosphere, where European-style pasta meets Asian-inspired twists, alongside premium steaks and a curated selection of fine wines. Whether you're craving a comforting plate of pasta, a perfectly seared beefsteak, or the perfect wine pairing for your meal, we have it all!`}
               </p>
               <button className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors">
                 BOOK NOW
@@ -175,21 +308,21 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-black space-y-6">
-              <h2 className="text-3xl font-bold">PRIVATE DINING</h2>
-              <p className="textH-lg leading-relaxed">
+            <div className="text-black space-y-6 order-2 md:order-1">
+              <h2 className="text-3xl font-bold">ASIAN-INSPIRED TWISTS</h2>
+              <p className="text-lg leading-relaxed">
                 {`Refined and innovative, XET. is an Asian fusion restaurant with
                 the best restaurant atmosphere. Committed to delivering
-                authentic flavours with a contemporary twist, it's Canberra's
+                authentic flavours with a contemporary twist, it's Phan Thiet's
                 destination for intimate and inventive dining.`}
               </p>
               <button className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors">
                 SEE MENU
               </button>
             </div>
-            <div className="relative h-[540px] rounded-lg overflow-hidden">
+            <div className="relative h-[300px] md:h-[540px] rounded-lg overflow-hidden order-1 md:order-2">
               <Image
-                src="/home/banner-2.jpg"
+                src="/images/2.JPG"
                 alt="PRIVATE DINING ambiance"
                 fill
                 className="object-cover"
@@ -200,26 +333,30 @@ export default function Home() {
       </section>
       {/* Footer */}
       <section className="bg-[#F1E2D1] py-10">
-        <div className="w-full border-t border-black/20 mb-12" />
+        <div className="w-full border-t border-black/10 mb-12" />
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-center text-3xl font-bold mb-12 text-black">
             FOLLOW US ON INSTAGRAM
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-20">
-          {[1, 2, 3, 4].map((index) => (
-            <div key={index} className="aspect-square relative overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-20">
+          {footerImages.map((url, index) => (
+            <div
+              key={index}
+              className="aspect-square relative overflow-hidden group"
+            >
               <Image
-                src={`/home/banner-${(index % 2) + 1}.jpg`}
+                src={url}
                 alt={`Instagram feed ${index}`}
                 fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-black">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-black text-center md:text-left">
             <div>
               <h3 className="font-bold mb-4">DINE & WINE EVERYDAY</h3>
               <p>7:00am-10:00pm</p>
@@ -241,7 +378,7 @@ export default function Home() {
 
             <div>
               <h3 className="font-bold mb-4">{`LET'S GET SOCIAL`}</h3>
-              <div className="flex space-x-4">
+              <div className="flex justify-center md:justify-start space-x-4">
                 <a
                   href="https://www.instagram.com/xet.dineandwine"
                   className="hover:opacity-70"
@@ -282,12 +419,17 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
-                    Functions
+                    Our Spaces
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
                     Gallery
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    Contact
                   </a>
                 </li>
               </ul>
