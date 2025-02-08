@@ -173,7 +173,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 -z-10 opacity-40">
           <Image
-            src="/images/menu.jpg"
+            src="/images/menu.JPG"
             alt="Menu background"
             fill
             className="object-cover"
@@ -237,7 +237,9 @@ export default function Home() {
               alt={`XET. ambiance ${index + 1}`}
               fill
               className="object-cover"
-              priority={index === 0}
+              priority={true}
+              loading="eager"
+              quality={100}
             />
           </div>
         ))}
