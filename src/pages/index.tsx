@@ -1,8 +1,10 @@
+import { placeholder0, placeholder1, placeholder2 } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const bannerImages = ["/images/0.JPG", "/images/1.JPG", "/images/2.JPG"];
+const placeholders = [placeholder0, placeholder1, placeholder2];
 
 const footerImages = [
   "/images/space-5.JPG",
@@ -238,8 +240,8 @@ export default function Home() {
               fill
               className="object-cover"
               priority={true}
-              loading="eager"
-              quality={100}
+              placeholder="blur"
+              blurDataURL={placeholders[index]}
             />
           </div>
         ))}
