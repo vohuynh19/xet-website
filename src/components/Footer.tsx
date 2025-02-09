@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 interface FooterProps {
@@ -50,9 +51,9 @@ export default function Footer({ footerImages }: FooterProps) {
             <h3 className="font-bold mb-4">CONTACT US</h3>
             <p className="mb-2">32 Luong The Vinh St,</p>
             <p className="mb-4">Phan Thiet, Binh Thuan</p>
-            <a href="tel:0941344673" className="hover:underline">
+            <Link href="tel:0941344673" className="hover:underline">
               0937 731 494
-            </a>
+            </Link>
           </div>
 
           <div>
@@ -87,19 +88,19 @@ export default function Footer({ footerImages }: FooterProps) {
             <h3 className="font-bold mb-4">LINKS</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/menu" className="hover:underline">
+                <Link href="/menu" className="hover:underline">
                   Menu
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/set-menus" className="hover:underline">
+                <Link href="/set-menus" className="hover:underline">
                   Dining Set
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/set-valentine-menu" className="hover:underline">
+                <Link href="/set-valentine-menu" className="hover:underline">
                   Valentine Set
-                </a>
+                </Link>
               </li>
               {/* <li>
                 <a href="#" className="hover:underline">
@@ -112,9 +113,9 @@ export default function Footer({ footerImages }: FooterProps) {
                 </a>
               </li> */}
               <li>
-                <a href="/contact-us" className="hover:underline">
+                <Link href="/contact-us" className="hover:underline">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
