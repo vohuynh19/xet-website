@@ -27,13 +27,17 @@ export default function FilterModal({
     setIsClosing(true);
     setTimeout(() => {
       onCategoryChange(category);
+      setIsClosing(false);
       onClose();
     }, 300);
   };
 
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(onClose, 300);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 300);
   };
 
   return (
@@ -42,8 +46,8 @@ export default function FilterModal({
       onClick={handleClose}
     >
       <div
-        className={`bg-gray-900 rounded-t-2xl p-6 w-full h-[80vh] transform transition-all duration-300 ${
-          isClosing ? "translate-y-full" : "translate-y-0"
+        className={`bg-gray-900 rounded-t-2xl p-6 w-full h-[80vh] transform transition-all duration-300 translate-y-full ${
+          isClosing ? "animate-slideDown" : "animate-slideUp"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -85,8 +89,21 @@ export default function FilterModal({
           }
         }
 
+        @keyframes slideDown {
+          from {
+            transform: translateY(0);
+          }
+          to {
+            transform: translateY(100%);
+          }
+        }
+
         .animate-slideUp {
           animation: slideUp 0.3s ease-out forwards;
+        }
+
+        .animate-slideDown {
+          animation: slideDown 0.3s ease-out forwards;
         }
 
         /* Custom scrollbar styles */

@@ -58,7 +58,7 @@ export default function Footer({ footerImages }: FooterProps) {
 
           <div>
             <h3 className="font-bold mb-4">{`LET'S GET SOCIAL`}</h3>
-            <div className="flex justify-center md:justify-start space-x-4">
+            <div className="flex justify-center md:justify-start space-x-6 md:space-x-4">
               <a
                 href="https://www.instagram.com/xet.dineandwine"
                 className="hover:opacity-70"
@@ -66,8 +66,9 @@ export default function Footer({ footerImages }: FooterProps) {
                 <Image
                   src="/instagram.svg"
                   alt="Instagram"
-                  width={24}
-                  height={24}
+                  width={32}
+                  height={32}
+                  className="w-10 h-10 md:w-6 md:h-6"
                 />
               </a>
               <a
@@ -77,8 +78,9 @@ export default function Footer({ footerImages }: FooterProps) {
                 <Image
                   src="/facebook.svg"
                   alt="Facebook"
-                  width={24}
-                  height={24}
+                  width={32}
+                  height={32}
+                  className="w-10 h-10 md:w-6 md:h-6"
                 />
               </a>
             </div>
@@ -86,7 +88,7 @@ export default function Footer({ footerImages }: FooterProps) {
 
           <div>
             <h3 className="font-bold mb-4">LINKS</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-lg md:text-sm">
               <li>
                 <Link href="/menu" className="hover:underline">
                   Menu
