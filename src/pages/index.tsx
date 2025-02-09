@@ -100,7 +100,7 @@ export default function Home() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/images/space-1.JPG" />
-        <meta property="og:url" content="https://xet.restaurant" />
+        <meta property="og:url" content="https://www.xetpasta.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"

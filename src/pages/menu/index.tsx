@@ -77,7 +77,7 @@ export default function Menu() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/images/menu.JPG" />
-        <meta property="og:url" content="https://xet.restaurant/menu" />
+        <meta property="og:url" content="https://www.xetpasta.com/menu" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"

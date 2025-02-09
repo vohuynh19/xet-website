@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Navigation from "@/components/Navigation";
+import Head from "next/head";
 
 interface ContactFormData {
   fullname: string;
@@ -37,6 +38,68 @@ export default function ContactUs() {
 
   return (
     <>
+      <Head>
+        <title>XET. Contact Us | Get in Touch - Restaurant in Phan Thiet</title>
+        <meta
+          name="description"
+          content="Contact XET. Dine & Wine for reservations, inquiries, or feedback. We're here to assist you with your dining experience in Phan Thiet."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="XET contact, restaurant contact, Phan Thiet restaurant, contact form, get in touch"
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <meta
+          property="og:title"
+          content="XET. Contact Us | Get in Touch - Restaurant in Phan Thiet"
+        />
+        <meta
+          property="og:description"
+          content="Contact XET. Dine & Wine for reservations, inquiries, or feedback. We're here to assist you with your dining experience in Phan Thiet."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/menu.JPG" />
+        <meta property="og:url" content="https://www.xetpasta.com/contact-us" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            name: "XET. Dine & Wine",
+            image: "https://www.xetpasta.com/images/menu.JPG",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Phan Thiet",
+              addressCountry: "VN",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              url: "https://www.xetpasta.com/contact-us",
+            },
+          })}
+        </script>
+      </Head>
       <Navigation
         isMenuOpen={isMenuOpen}
         showNavBackground

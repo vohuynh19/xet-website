@@ -75,7 +75,7 @@ export default function SetMenus() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/images/menu.JPG" />
-        <meta property="og:url" content="https://xet.restaurant/set-menus" />
+        <meta property="og:url" content="https://www.xetpasta.com/set-menus" />
       </Head>
 
       <Navigation

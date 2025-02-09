@@ -60,7 +60,7 @@ export default function ValentineMenu() {
         <meta property="og:image" content="/images/menu.JPG" />
         <meta
           property="og:url"
-          content="https://xet.restaurant/set-valentine-menu"
+          content="https://www.xetpasta.com/set-valentine-menu"
         />
       </Head>
 
