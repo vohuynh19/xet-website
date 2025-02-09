@@ -82,7 +82,7 @@ export default function Footer({ footerImages }: FooterProps) {
             <h3 className="font-bold mb-4">LINKS</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/menu" className="hover:underline">
                   Menu
                 </a>
               </li>
@@ -91,7 +91,7 @@ export default function Footer({ footerImages }: FooterProps) {
                   Set Menus
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="hover:underline">
                   Our Spaces
                 </a>
@@ -100,7 +100,7 @@ export default function Footer({ footerImages }: FooterProps) {
                 <a href="#" className="hover:underline">
                   Gallery
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="#" className="hover:underline">
                   Contact

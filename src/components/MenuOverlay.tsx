@@ -25,19 +25,19 @@ export default function MenuOverlay({ isOpen }: MenuOverlayProps) {
       </div>
       <div className="text-center space-y-6">
         <Link
-          href="/menu/dine-and-wine"
+          href="/menu"
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
           MENU
         </Link>
         <Link
-          href="/menu/coffee-and-drink"
+          href="/set-menus"
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
           SET MENUS
         </Link>
-        <Link
-          href="/menu/coffee-and-drink"
+        {/* <Link
+          href="/spaces"
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
           OUR SPACES
@@ -47,7 +47,7 @@ export default function MenuOverlay({ isOpen }: MenuOverlayProps) {
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
           GALLERY
-        </Link>
+        </Link> */}
         <div style={{ height: 24 }}></div>
         <button className="border border-white px-8 py-3 text-lg rounded-full hover:bg-white hover:text-black transition-colors">
           BOOK NOW

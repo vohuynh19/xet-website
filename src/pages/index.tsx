@@ -5,6 +5,7 @@ import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const bannerImages = ["/images/0.JPG", "/images/1.JPG", "/images/2.JPG"];
 const placeholders = [placeholder0, placeholder1, placeholder2];
@@ -74,20 +75,75 @@ export default function Home() {
   }, [lastScrollY]);
 
   return (
-    <div className="min-h-screen bg-[#F1E2D1]">
-      <Banner showBanner={showBanner} onClose={handleCloseBanner} />
-      <Navigation
-        isMenuOpen={isMenuOpen}
-        showNavBackground={showNavBackground}
-        toggleMenu={toggleMenu}
-      />
-      <Hero
-        bannerImages={bannerImages}
-        currentImageIndex={currentImageIndex}
-        placeholders={placeholders}
-      />
-      <About />
-      <Footer footerImages={footerImages} />
-    </div>
+    <>
+      <Head>
+        <title>XET. Dine & Wine | Asian Fusion Restaurant in Phan Thiet</title>
+        <meta
+          name="description"
+          content="Experience the perfect blend of Asian and Western flavors at XET. Dine & Wine in Phan Thiet. Premium steaks, Asian-inspired pasta, and fine wines in a stylish atmosphere."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="XET restaurant, Phan Thiet dining, Asian fusion, fine dining, steakhouse, wine bar, pasta restaurant"
+        />
+        <meta
+          property="og:title"
+          content="XET. Dine & Wine | Asian Fusion Restaurant in Phan Thiet"
+        />
+        <meta
+          property="og:description"
+          content="Experience the perfect blend of Asian and Western flavors at XET. Dine & Wine in Phan Thiet. Premium steaks, Asian-inspired pasta, and fine wines in a stylish atmosphere."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/space-1.JPG" />
+        <meta property="og:url" content="https://xet.restaurant" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="XET. Dine & Wine | Asian Fusion Restaurant in Phan Thiet"
+        />
+        <meta
+          name="twitter:description"
+          content="Experience the perfect blend of Asian and Western flavors at XET. Dine & Wine in Phan Thiet. Premium steaks, Asian-inspired pasta, and fine wines in a stylish atmosphere."
+        />
+        <meta name="twitter:image" content="/images/space-1.JPG" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            name: "XET. Dine & Wine",
+            image: "/images/space-1.JPG",
+            description:
+              "Experience the perfect blend of Asian and Western flavors at XET. Dine & Wine in Phan Thiet. Premium steaks, Asian-inspired pasta, and fine wines in a stylish atmosphere.",
+            servesCuisine: ["Asian Fusion", "Steakhouse", "Wine Bar"],
+            priceRange: "$$$",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Phan Thiet",
+              addressCountry: "VN",
+            },
+          })}
+        </script>
+      </Head>
+      <div className="min-h-screen bg-[#F1E2D1]">
+        <Banner showBanner={showBanner} onClose={handleCloseBanner} />
+        <Navigation
+          isMenuOpen={isMenuOpen}
+          showNavBackground={showNavBackground}
+          toggleMenu={toggleMenu}
+        />
+        <Hero
+          bannerImages={bannerImages}
+          currentImageIndex={currentImageIndex}
+          placeholders={placeholders}
+        />
+        <About />
+        <Footer footerImages={footerImages} />
+      </div>
+    </>
   );
 }

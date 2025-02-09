@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+.animate-bounce-subtle {
+  animation: subtle-bounce 2s infinite;
+}
+
 @font-face {
   font-family: 'Aktiv Grotesk Extended';
   src: url('/fonts/Aktiv_Grotesk_Ex_Regular.ttf') format('truetype');
