@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 interface FooterProps {
   footerImages: string[];
 }
 
 export default function Footer({ footerImages }: FooterProps) {
+  const router = useRouter();
   return (
     <section className="bg-[#F1E2D1] py-10">
       <div className="w-full border-t border-black/10 mb-12" />
@@ -36,7 +38,10 @@ export default function Footer({ footerImages }: FooterProps) {
             <p>7:00am-10:00pm</p>
             <h3 className="font-bold mb-4 mt-6">MAM VIET EVERYDAY</h3>
             <p>7:00am-2:30pm</p>
-            <button className="mt-6 border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition-colors">
+            <button
+              onClick={() => router.push("/booking")}
+              className="mt-6 border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition-colors"
+            >
               BOOK NOW
             </button>
           </div>
@@ -46,7 +51,7 @@ export default function Footer({ footerImages }: FooterProps) {
             <p className="mb-2">32 Luong The Vinh St,</p>
             <p className="mb-4">Phan Thiet, Binh Thuan</p>
             <a href="tel:0941344673" className="hover:underline">
-              0941 344 673
+              0937 731 494
             </a>
           </div>
 
@@ -87,8 +92,13 @@ export default function Footer({ footerImages }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
-                  Set Menus
+                <a href="/set-menus" className="hover:underline">
+                  Dining Set
+                </a>
+              </li>
+              <li>
+                <a href="/set-valentine-menu" className="hover:underline">
+                  Valentine Set
                 </a>
               </li>
               {/* <li>
@@ -102,8 +112,8 @@ export default function Footer({ footerImages }: FooterProps) {
                 </a>
               </li> */}
               <li>
-                <a href="#" className="hover:underline">
-                  Contact
+                <a href="/contact-us" className="hover:underline">
+                  Contact Us
                 </a>
               </li>
             </ul>

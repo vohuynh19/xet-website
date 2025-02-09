@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import MenuOverlay from "./MenuOverlay";
+import { useRouter } from "next/router";
 
 interface NavigationProps {
   isMenuOpen: boolean;
@@ -13,6 +14,7 @@ export default function Navigation({
   showNavBackground,
   toggleMenu,
 }: NavigationProps) {
+  const router = useRouter();
   return (
     <>
       <MenuOverlay isOpen={isMenuOpen} />
@@ -21,15 +23,18 @@ export default function Navigation({
           showNavBackground && !isMenuOpen ? "bg-black/50 backdrop-blur-sm" : ""
         }`}
       >
-        <button
-          className={`hidden md:block text-white border border-white px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-base rounded-full hover:bg-white hover:text-black transition-colors transform transition-transform duration-300 ${
-            isMenuOpen
-              ? "opacity-0 -translate-y-4"
-              : "opacity-100 translate-y-0"
-          }`}
-        >
-          BOOK NOW
-        </button>
+        <Link href="/booking">
+          <button
+            onClick={() => router.push("/booking")}
+            className={`hidden md:block text-white border border-white px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-base rounded-full hover:bg-white hover:text-black transition-colors transform transition-transform duration-300 ${
+              isMenuOpen
+                ? "opacity-0 -translate-y-4"
+                : "opacity-100 translate-y-0"
+            }`}
+          >
+            BOOK NOW
+          </button>
+        </Link>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Link href="/" className="cursor-pointer">
             <Image

@@ -34,24 +34,28 @@ export default function MenuOverlay({ isOpen }: MenuOverlayProps) {
           href="/set-menus"
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
-          SET MENUS
-        </Link>
-        {/* <Link
-          href="/spaces"
-          className="block text-2xl hover:text-gray-300 transition-colors"
-        >
-          OUR SPACES
+          DINING SET
         </Link>
         <Link
-          href="/menu/coffee-and-drink"
+          href="/set-valentine-menu"
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
-          GALLERY
-        </Link> */}
+          VALENTINE SET
+        </Link>
+        <Link
+          href="/contact-us"
+          className="block text-2xl hover:text-gray-300 transition-colors"
+        >
+          CONTACT US
+        </Link>
         <div style={{ height: 24 }}></div>
-        <button className="border border-white px-8 py-3 text-lg rounded-full hover:bg-white hover:text-black transition-colors">
+        <div style={{ height: 24 }}></div>
+        <Link
+          href="/booking"
+          className="border border-white px-8 py-3 text-lg rounded-full hover:bg-white hover:text-black transition-colors"
+        >
           BOOK NOW
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function About() {
+  const router = useRouter();
   return (
     <section className="py-20 bg-[#F1E2D1]">
       <div className="max-w-6xl mx-auto space-y-20">
@@ -13,7 +15,10 @@ export default function About() {
             steaks and Asian-inspired pasta paired with fine wines. Experience
             the perfect blend of East and West in every dish.
           </p>
-          <button className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors">
+          <button
+            onClick={() => router.push("/booking")}
+            className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors"
+          >
             BOOK NOW
           </button>
         </div>
@@ -52,7 +57,10 @@ export default function About() {
             <p className="text-lg leading-relaxed">
               {`A fusion restaurant in Phan Thiet offering a spacious and stylish atmosphere, where European-style pasta meets Asian-inspired twists, alongside premium steaks and a curated selection of fine wines. Whether you're craving a comforting plate of pasta, a perfectly seared beefsteak, or the perfect wine pairing for your meal, we have it all!`}
             </p>
-            <button className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors">
+            <button
+              onClick={() => router.push("/booking")}
+              className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors"
+            >
               BOOK NOW
             </button>
           </div>
@@ -67,7 +75,10 @@ export default function About() {
               authentic flavours with a contemporary twist, it's Phan Thiet's
               destination for intimate and inventive dining.`}
             </p>
-            <button className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors">
+            <button
+              onClick={() => router.push("/menu")}
+              className="bg-transparent text-black border border-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors"
+            >
               SEE MENU
             </button>
           </div>
