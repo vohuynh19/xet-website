@@ -92,7 +92,7 @@ export default function Menu() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Menu",
-            name: "XET. Restaurant Menu",
+            name: "XET. Dine & Wine Menu",
             description:
               "Our diverse menu features a perfect fusion of Asian and Western flavors",
             hasMenuSection: [
