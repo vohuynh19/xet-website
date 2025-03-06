@@ -37,10 +37,10 @@ export default function MenuOverlay({ isOpen }: MenuOverlayProps) {
           DINING SET
         </Link>
         <Link
-          href="/set-valentine-menu"
+          href="/set-international-women-menu"
           className="block text-2xl hover:text-gray-300 transition-colors"
         >
-          VALENTINE SET
+          {`WOMEN'S DAY SET`}
         </Link>
         <Link
           href="/contact-us"

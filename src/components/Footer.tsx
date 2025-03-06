@@ -101,7 +101,7 @@ export default function Footer({ footerImages }: FooterProps) {
               </li>
               <li>
                 <Link href="/set-valentine-menu" className="hover:underline">
-                  Valentine Set
+                  {` WOMEN'S DAY SET`}
                 </Link>
               </li>
               {/* <li>
