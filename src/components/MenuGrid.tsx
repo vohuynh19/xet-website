@@ -84,7 +84,7 @@ export default function MenuGrid({
             onClick={() => setSelectedImage(img.src)}
             className="relative aspect-[3/4] group overflow-hidden cursor-pointer transform transition-all duration-500"
           >
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors z-10" />
+            <div className="absolute inset-0 group-hover:bg-black/40 transition-colors z-10" />
             <Image
               src={img.src}
               alt={`Menu page ${index + 1}`}
