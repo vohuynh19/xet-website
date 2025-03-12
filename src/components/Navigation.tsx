@@ -17,7 +17,7 @@ export default function Navigation({
   const router = useRouter();
   return (
     <>
-      <MenuOverlay isOpen={isMenuOpen} />
+      <MenuOverlay isOpen={isMenuOpen} onLink={() => toggleMenu()} />
       <nav
         className={`fixed top-0 left-0 w-full z-[1001] flex justify-between items-center px-4 md:px-8 py-4 transition-all duration-300 ${
           showNavBackground && !isMenuOpen ? "bg-black/50 backdrop-blur-sm" : ""

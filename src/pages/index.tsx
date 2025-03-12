@@ -126,7 +126,6 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/preview.jpg" />
         <meta property="og:site_name" content="XET. Dine & Wine" />
-        <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="XET. Dine & Wine" />
@@ -139,7 +138,6 @@ export default function Home() {
         <link rel="canonical" href="https://xetpasta.com/" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="XET." />
-        <meta property="og:locale" content="en_US" />
       </Head>
 
       <div className="min-h-screen bg-[#F1E2D1]">

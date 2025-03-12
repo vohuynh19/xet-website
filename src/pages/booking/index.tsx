@@ -67,17 +67,15 @@ export default function Booking() {
         showNavBackground
         toggleMenu={() => setIsMenuOpen(!isMenuOpen)}
       />
-      <section className="min-h-screen bg-[#F1E2D1] py-32">
-        <div className="w-full flex justify-center px-4 h-full">
-          <iframe
-            src="https://booking.ipos.vn/public/booking/8ea59cf7-89d7-4624-98d7-3d55b2b97a56?restaurant_uuid=f3554130-6d9b-4048-b242-45e4f88131bf&source=IFRAME&restaurant_disabled=true"
-            className="w-full md:w-[600px] min-h-[800px]"
-            style={{
-              border: 0,
-            }}
-          />
-        </div>
-      </section>
+
+      <iframe
+        src="https://booking.ipos.vn/public/booking/8ea59cf7-89d7-4624-98d7-3d55b2b97a56?source=IFRAME&css=overflow-y:hidden;"
+        className="w-full h-[100vh]"
+        style={{
+          border: 0,
+          paddingTop: 80,
+        }}
+      ></iframe>
     </>
   );
 }
