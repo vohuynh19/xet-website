@@ -70,10 +70,12 @@ export default function Booking() {
 
       <iframe
         src="https://booking.ipos.vn/public/booking/8ea59cf7-89d7-4624-98d7-3d55b2b97a56?restaurant_uuid=f3554130-6d9b-4048-b242-45e4f88131bf&source=IFRAME&restaurant_disabled=true"
-        className="w-full h-[100vh]"
+        className="w-full"
         style={{
           border: 0,
           paddingTop: 80,
+          height:
+            "calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
         }}
       ></iframe>
     </>
