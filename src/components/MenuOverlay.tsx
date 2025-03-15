@@ -40,13 +40,6 @@ export default function MenuOverlay({ isOpen, onLink }: MenuOverlayProps) {
           DINING SET
         </Link>
         <Link
-          onClick={() => onLink("/set-international-women-menu")}
-          href="/set-international-women-menu"
-          className="block text-2xl hover:text-gray-300 transition-colors"
-        >
-          {`WOMEN'S DAY SET`}
-        </Link>
-        <Link
           onClick={() => onLink("/contact-us")}
           href="/contact-us"
           className="block text-2xl hover:text-gray-300 transition-colors"

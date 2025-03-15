@@ -99,11 +99,6 @@ export default function Footer({ footerImages }: FooterProps) {
                   Dining Set
                 </Link>
               </li>
-              <li>
-                <Link href="/set-valentine-menu" className="hover:underline">
-                  {` WOMEN'S DAY SET`}
-                </Link>
-              </li>
               {/* <li>
                 <a href="#" className="hover:underline">
                   Our Spaces
