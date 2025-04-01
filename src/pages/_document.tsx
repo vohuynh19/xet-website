@@ -60,6 +60,23 @@ export default function Document() {
               name: "XET. Dine & Wine",
               image: "https://www.xetpasta.com/preview.jpg",
               url: "https://www.xetpasta.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "32 Luongw The Vinh",
+                addressLocality: "Phan Thiet",
+                addressRegion: "Binh Thuan",
+                postalCode: "800000",
+                addressCountry: "VN",
+                priceRange: "$$$ (100,000 - 500,000 VND per person)",
+                servesCuisine: [
+                  "Asian Fusion",
+                  "Steakhouse",
+                  "Pasta",
+                  "Wine Bar",
+                  "Beer",
+                ],
+              },
+              telephone: "+84 937 731 494",
             }),
           }}
         />
