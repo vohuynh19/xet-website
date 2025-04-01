@@ -67,16 +67,16 @@ export default function Document() {
                 addressRegion: "Binh Thuan",
                 postalCode: "800000",
                 addressCountry: "VN",
-                priceRange: "$$$ (100,000 - 500,000 VND per person)",
-                servesCuisine: [
-                  "Asian Fusion",
-                  "Steakhouse",
-                  "Pasta",
-                  "Wine Bar",
-                  "Beer",
-                ],
               },
               telephone: "+84 937 731 494",
+              priceRange: "$$$ (100,000 - 500,000 VND per person)",
+              servesCuisine: [
+                "Asian Fusion",
+                "Steakhouse",
+                "Pasta",
+                "Wine Bar",
+                "Beer",
+              ],
             }),
           }}
         />
