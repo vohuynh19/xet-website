@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Head from "next/head";
 
 interface ContactFormData {
-  fullname: string;
+  name: string;
   email: string;
   message: string;
 }
@@ -22,11 +22,17 @@ export default function ContactUs() {
   } = useForm<ContactFormData>();
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log("form data", data);
     setIsSubmitting(true);
     try {
-      // Here you would typically send the data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulated API call
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const res = await response.json();
+      if (!response.ok) {
+        throw new Error(res.message || "Something went wrong");
+      }
       setSubmitSuccess(true);
       reset();
     } catch (error) {
@@ -110,12 +116,12 @@ export default function ContactUs() {
               <input
                 type="text"
                 id="fullname"
-                {...register("fullname", { required: "Full name is required" })}
+                {...register("name", { required: "Full name is required" })}
                 className="w-full px-4 py-2 rounded-lg border border-black/10 focus:outline-none focus:ring-2 focus:ring-black/20 bg-white/50 text-black"
               />
-              {errors.fullname && (
+              {errors.name && (
                 <p className="mt-1 text-red-600 text-sm">
-                  {errors.fullname.message}
+                  {errors.name.message}
                 </p>
               )}
             </div>
