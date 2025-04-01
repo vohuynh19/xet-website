@@ -9,7 +9,7 @@ type ContactFormData = {
 
 // Replace this with your Google Form URL
 const GOOGLE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLScn9VR5HBZN67pc13D4OfijfJtwSILFP3KQsDaroyqBpAZS1Q/formResponse";
+  "https://docs.google.com/forms/d/e/1FAIpQLSfYy_VY-UcqDymg-4fQwahVApjRNbEwCRRvyb0j-fLgEPPBaA/formResponse";
 
 // Map your form fields to Google Form field IDs
 const GOOGLE_FORM_FIELDS = {
