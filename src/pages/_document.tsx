@@ -49,6 +49,20 @@ export default function Document() {
           property="og:description"
           content="XET. - A unique dining experience in the heart of the city. Enjoy our carefully crafted menu featuring pasta, coffee, and dining options."
         />
+        <meta property="og:site_name" content="XET. Dine & Wine" />
+        <meta property="og:image" content="/preview.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              name: "XET. Dine & Wine",
+              image: "https://www.xetpasta.com/preview.jpg",
+              url: "https://www.xetpasta.com",
+            }),
+          }}
+        />
       </Head>
       <Main />
       <NextScript />
