@@ -5,9 +5,6 @@ import MenuGrid, { MenuItem } from "@/components/MenuGrid";
 
 enum Category {
   "PAX2" = "2 Pax",
-  "PAX46" = "2-4 PAX",
-  "PAX10" = "10 PAX",
-  "PAX15" = "11-15 PAX",
 }
 
 export default function SetMenus() {
@@ -35,16 +32,6 @@ export default function SetMenus() {
     { src: "/menu/set-menu/8.png", category: Category.PAX2 },
     { src: "/menu/set-menu/9.png", category: Category.PAX2 },
     { src: "/menu/set-menu/10.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/11.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/12.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/13.png", category: Category.PAX46 },
-    { src: "/menu/set-menu/14.png", category: Category.PAX46 },
-    { src: "/menu/set-menu/15.png", category: Category.PAX46 },
-    { src: "/menu/set-menu/16.png", category: Category.PAX10 },
-    { src: "/menu/set-menu/17.png", category: Category.PAX10 },
-    { src: "/menu/set-menu/18.png", category: Category.PAX10 },
-    { src: "/menu/set-menu/19.png", category: Category.PAX15 },
-    { src: "/menu/set-menu/20.png", category: "NONE" },
   ];
 
   const categories = Object.values(Category);
