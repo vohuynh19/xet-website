@@ -5,6 +5,7 @@ import MenuGrid, { MenuItem } from "@/components/MenuGrid";
 
 enum Category {
   "Wine" = "Wine",
+  "Beer" = "Beer",
   "Appertizer" = "Appertizer",
   "Pasta" = "Pasta",
   "Steak" = "Steak",
@@ -32,24 +33,24 @@ export default function Menu() {
   const menuImages: MenuItem[] = [
     { src: "/menu/menu/1.png", category: "None" },
     { src: "/menu/menu/2.png", category: Category.Wine },
-    { src: "/menu/menu/3.png", category: "None" },
+    { src: "/menu/menu/3.png", category: Category.Beer },
     { src: "/menu/menu/4.png", category: Category.Appertizer },
-    { src: "/menu/menu/5.png", category: Category.Appertizer },
+    { src: "/menu/menu/5.png", category: Category.Salad },
     { src: "/menu/menu/6.png", category: Category.Seafood },
-    { src: "/menu/menu/7.png", category: Category.Salad },
+    { src: "/menu/menu/7.png", category: Category.Pasta },
     { src: "/menu/menu/8.png", category: Category.Pasta },
     { src: "/menu/menu/9.png", category: Category.Pasta },
     { src: "/menu/menu/10.png", category: Category.Pasta },
     { src: "/menu/menu/11.png", category: Category.Pasta },
     { src: "/menu/menu/12.png", category: Category.Pasta },
-    { src: "/menu/menu/13.png", category: Category.Pasta },
-    { src: "/menu/menu/14.png", category: Category.Rice },
-    { src: "/menu/menu/15.png", category: Category.Steak },
+    { src: "/menu/menu/13.png", category: Category.Rice },
+    { src: "/menu/menu/14.png", category: Category.Steak },
+    { src: "/menu/menu/15.png", category: Category.Drink },
     { src: "/menu/menu/16.png", category: Category.Drink },
     { src: "/menu/menu/17.png", category: Category.Drink },
-    { src: "/menu/menu/18.png", category: Category.Drink },
+    { src: "/menu/menu/18.png", category: Category.Dessert },
     { src: "/menu/menu/19.png", category: Category.Dessert },
-    { src: "/menu/menu/20.png", category: Category.Dessert },
+    { src: "/menu/menu/20.png", category: "None" },
   ];
 
   const categories = Object.values(Category);
