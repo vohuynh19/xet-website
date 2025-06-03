@@ -5,6 +5,7 @@ type ContactFormData = {
   name: string;
   email: string;
   message: string;
+  phone: string;
 };
 
 // Replace this with your Google Form URL
@@ -15,6 +16,7 @@ const GOOGLE_FORM_URL =
 const GOOGLE_FORM_FIELDS = {
   name: "entry.227524569",
   email: "entry.979665482",
+  phone: "entry.268775979",
   message: "entry.230928492",
 };
 
@@ -27,10 +29,10 @@ export default async function handler(
   }
 
   try {
-    const { name, email, message } = req.body as ContactFormData;
+    const { name, email, phone, message } = req.body as ContactFormData;
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !message) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -44,6 +46,7 @@ export default async function handler(
     const formData = new URLSearchParams({
       [GOOGLE_FORM_FIELDS.name]: name,
       [GOOGLE_FORM_FIELDS.email]: email,
+      [GOOGLE_FORM_FIELDS.phone]: phone,
       [GOOGLE_FORM_FIELDS.message]: message,
     });
 

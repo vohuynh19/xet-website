@@ -6,6 +6,7 @@ import Head from "next/head";
 interface ContactFormData {
   name: string;
   email: string;
+  phone: string;
   message: string;
 }
 
@@ -148,6 +149,32 @@ export default function ContactUs() {
               {errors.email && (
                 <p className="mt-1 text-red-600 text-sm">
                   {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-black mb-2"
+              >
+                Phone Number <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                {...register("phone", {
+                  required: "Phone number is required",
+                  pattern: {
+                    value: /^[0-9+()\s-]{7,}$/,
+                    message: "Invalid phone number",
+                  },
+                })}
+                className="w-full px-4 py-2 rounded-lg border border-black/10 focus:outline-none focus:ring-2 focus:ring-black/20 bg-white/50 text-black"
+              />
+              {errors.phone && (
+                <p className="mt-1 text-red-600 text-sm">
+                  {errors.phone.message}
                 </p>
               )}
             </div>
