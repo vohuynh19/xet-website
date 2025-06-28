@@ -51,8 +51,8 @@ export default function Footer({ footerImages }: FooterProps) {
             <h3 className="font-bold mb-4">CONTACT US</h3>
             <p className="mb-2">32 Luong The Vinh St,</p>
             <p className="mb-4">Phan Thiet, Binh Thuan</p>
-            <Link href="tel:0941344673" className="hover:underline">
-              0937 731 494
+            <Link href="tel:0908704458" className="hover:underline">
+              0908 704 458
             </Link>
           </div>
 
