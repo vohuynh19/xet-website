@@ -294,7 +294,7 @@ export default function KohakuStyle() {
 
         {/* Fixed Hero Background with Image Rotation */}
         <div
-          className="fixed inset-0 z-0 h-full w-full"
+          className="fixed inset-0 z-0 h-[100lvh] w-full"
           style={{ backgroundColor: "#000" }}
         >
           {/* Background Images with Rotation */}
