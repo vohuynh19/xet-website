@@ -22,16 +22,7 @@ export default function SetMenus() {
   }, []);
 
   const menuImages: MenuItem[] = [
-    { src: "/menu/set-menu/1.png", category: "NONE" },
-    { src: "/menu/set-menu/2.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/3.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/4.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/5.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/6.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/7.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/8.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/9.png", category: Category.PAX2 },
-    { src: "/menu/set-menu/10.png", category: Category.PAX2 },
+    { src: "/images/menu/set.jpg", category: Category.PAX2 },
   ];
 
   const categories = Object.values(Category);

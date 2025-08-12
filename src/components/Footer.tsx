@@ -12,7 +12,7 @@ export default function Footer({ footerImages }: FooterProps) {
     <section className="bg-[#F1E2D1] py-10">
       <div className="w-full border-t border-black/10 mb-12" />
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-center text-3xl font-bold mb-12 text-black">
+        <h2 className="text-center text-xl md:text-2xl font-bold mb-12 text-black">
           FOLLOW US ON INSTAGRAM
         </h2>
       </div>
@@ -35,29 +35,29 @@ export default function Footer({ footerImages }: FooterProps) {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-black text-center md:text-left">
           <div>
-            <h3 className="font-bold mb-4">DINE & WINE EVERYDAY</h3>
-            <p>7:00am-10:00pm</p>
-            <h3 className="font-bold mb-4 mt-6">MAM VIET EVERYDAY</h3>
-            <p>7:00am-2:30pm</p>
+            <h3 className="font-bold mb-4 text-base">DINE & WINE EVERYDAY</h3>
+            <p className="text-sm">7:00am-10:00pm</p>
+            <h3 className="font-bold mb-4 mt-6 text-base">MAM VIET EVERYDAY</h3>
+            <p className="text-sm">7:00am-2:30pm</p>
             <button
               onClick={() => router.push("/booking")}
-              className="mt-6 border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition-colors"
+              className="mt-6 border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition-colors text-sm"
             >
               BOOK NOW
             </button>
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">CONTACT US</h3>
-            <p className="mb-2">32 Luong The Vinh St,</p>
-            <p className="mb-4">Phan Thiet, Binh Thuan</p>
-            <Link href="tel:0908704458" className="hover:underline">
+            <h3 className="font-bold mb-4 text-base">CONTACT US</h3>
+            <p className="mb-2 text-sm">32 Luong The Vinh St,</p>
+            <p className="mb-4 text-sm">Phan Thiet, Binh Thuan</p>
+            <Link href="tel:0908704458" className="hover:underline text-sm">
               0908 704 458
             </Link>
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">{`LET'S GET SOCIAL`}</h3>
+            <h3 className="font-bold mb-4 text-base">{`LET'S GET SOCIAL`}</h3>
             <div className="flex justify-center md:justify-start space-x-6 md:space-x-4">
               <a
                 href="https://www.instagram.com/xet.dineandwine"
@@ -68,7 +68,7 @@ export default function Footer({ footerImages }: FooterProps) {
                   alt="Instagram"
                   width={32}
                   height={32}
-                  className="w-10 h-10 md:w-6 md:h-6"
+                  className="w-8 h-8 md:w-6 md:h-6"
                 />
               </a>
               <a
@@ -80,15 +80,15 @@ export default function Footer({ footerImages }: FooterProps) {
                   alt="Facebook"
                   width={32}
                   height={32}
-                  className="w-10 h-10 md:w-6 md:h-6"
+                  className="w-8 h-8 md:w-6 md:h-6"
                 />
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">LINKS</h3>
-            <ul className="space-y-2 text-lg md:text-sm">
+            <h3 className="font-bold mb-4 text-base">LINKS</h3>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/menu" className="hover:underline">
                   Menu

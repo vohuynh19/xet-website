@@ -2,59 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes subtle-bounce {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(10px); }
-}
-
-.animate-bounce-subtle {
-  animation: subtle-bounce 2s infinite;
-}
-
-@font-face {
-  font-family: 'Aktiv Grotesk Extended';
-  src: url('/fonts/Aktiv_Grotesk_Ex_Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aktiv Grotesk Extended';
-  src: url('/fonts/Aktiv_Grotesk_Ex_Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aktiv Grotesk Extended';
-  src: url('/fonts/Aktiv_Grotesk_Ex_SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aktiv Grotesk Extended';
-  src: url('/fonts/Aktiv_Grotesk_Ex_Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
+html {
+  background-color: #000000;
+}
+
 body {
-  color: var(--foreground);
+  color: rgb(var(--foreground));
   background: var(--background);
-  font-family: 'Aktiv Grotesk Extended', Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
 }
 
 @keyframes marquee {
