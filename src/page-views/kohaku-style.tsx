@@ -208,7 +208,7 @@ export default function KohakuStyle() {
               <svg
                 className="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 viewBox="0 0 24 24"
               >
                 {isMobileMenuOpen ? (
@@ -355,7 +355,7 @@ export default function KohakuStyle() {
         {/* Content Sections with Background */}
         <div className="relative z-10">
           {/* Spacer for hero section */}
-          <div className="h-screen"></div>
+          <div style={{ height: "100lvh" }}></div>
 
           {/* Philosophy Section with Gradient Transition */}
           <section className="py-20 px-6 relative">
@@ -505,10 +505,10 @@ export default function KohakuStyle() {
 
                   {/* Right Content with Featured Dish - Takes 2 columns */}
                   <div
-                    className={`lg:col-span-2 transition-all duration-1000 delay-600 ${
+                    className={`lg:col-span-2 transition-all duration-1000 delay-1000 ${
                       scrollY > 1000
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 translate-x-10"
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
                     }`}
                   >
                     {/* Featured Dish Image with Enhanced Design */}
@@ -776,7 +776,7 @@ export default function KohakuStyle() {
 
                               {/* Category Badge */}
                               {dish.isSignature && (
-                                <div className="absolute top-4 left-4 bg-white/10 px-3 py-1 rounded-full border border-[#581f29]">
+                                <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-[#581f29]">
                                   <span className="text-[#581f29] text-xs font-medium uppercase tracking-wider">
                                     Signature
                                   </span>
