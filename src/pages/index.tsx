@@ -1,5 +1,5 @@
-import Head from "next/head";
 import KohakuStyle from "@/page-views/kohaku-style";
+import Head from "next/head";
 
 export default function Home() {
   return (
