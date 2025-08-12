@@ -776,7 +776,7 @@ export default function KohakuStyle() {
 
                               {/* Category Badge */}
                               {dish.isSignature && (
-                                <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-[#581f29]">
+                                <div className="absolute top-4 left-4 bg-white/10 px-3 py-1 rounded-full border border-[#581f29]">
                                   <span className="text-[#581f29] text-xs font-medium uppercase tracking-wider">
                                     Signature
                                   </span>
