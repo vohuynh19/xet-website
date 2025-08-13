@@ -48,7 +48,6 @@ export default function KohakuStyle() {
           {/* Spacer for hero section */}
           <div style={{ height: "100lvh" }}></div>
           <MPhilosophySection scrollY={scrollY} />
-          <MPhilosophySection scrollY={scrollY} />
           <MCuisineSection scrollY={scrollY} />
           <MGallerySection scrollY={scrollY} />
           <MFooter />
