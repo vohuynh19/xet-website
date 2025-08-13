@@ -2,10 +2,9 @@ import { useState, useEffect, useMemo, memo, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { placeholder0, placeholder1, placeholder2 } from "@/constants";
+import { placeholder0 } from "@/constants";
 
-// const bannerImages = ["/images/0.JPG", "/images/1.JPG", "/images/2.JPG"];
-// const placeholders = [placeholder0, placeholder1, placeholder2];
+// Base64 placeholder for initial load (optimized 10x10 pixel blurred image)
 
 export default function KohakuStyle() {
   const scrollYRef = useRef(0); // Stores the latest scrollY without triggering re-render
@@ -62,6 +61,9 @@ export default function KohakuStyle() {
 const HeroSection = ({ scrollY }: { scrollY: number }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false);
+
   const heroImages = useMemo(
     () => [
       "/images/0.JPG",
@@ -74,46 +76,109 @@ const HeroSection = ({ scrollY }: { scrollY: number }) => {
     []
   );
 
+  // Initialize images loaded state
+  useEffect(() => {
+    setImagesLoaded(new Array(heroImages.length).fill(false));
+  }, [heroImages.length]);
+
+  // Preload images for better performance
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises = heroImages.map((src, index) => {
+        return new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => {
+            setImagesLoaded((prev) => {
+              const newState = [...prev];
+              newState[index] = true;
+              return newState;
+            });
+            if (index === 0) {
+              setFirstImageLoaded(true);
+            }
+            resolve();
+          };
+          img.onerror = () => resolve(); // Continue even if image fails
+          img.src = src;
+        });
+      });
+
+      await Promise.all(imagePromises);
+    };
+
+    preloadImages();
+  }, [heroImages]);
+
   // Image rotation effect with zoom in/out animation
   useEffect(() => {
+    // Only start rotation after first image is loaded
+    if (!firstImageLoaded) return;
+
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
     }, 6000); // Change image every 6 seconds for better zoom effect
 
     return () => clearInterval(interval);
-  }, [heroImages.length]);
+  }, [heroImages.length, firstImageLoaded]);
 
   // Initialize first image with zoom effect
   useEffect(() => {
-    // Trigger initial zoom animation
-    setIsInitialized(true);
-  }, []);
+    if (firstImageLoaded) {
+      setIsInitialized(true);
+    }
+  }, [firstImageLoaded]);
 
   return (
     <div
       className="fixed inset-0 z-0 h-[100lvh] w-full"
       style={{ backgroundColor: "#000" }}
     >
-      {heroImages.map((image, index) => (
+      {/* Show placeholder while first image loads */}
+      {!firstImageLoaded && (
         <div
-          key={image}
-          className={`absolute w-full h-full bg-cover bg-center transition-opacity duration-2000 ${
-            currentImageIndex === index ? "opacity-100" : "opacity-0"
-          }`}
+          className="absolute w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url('${image}')`,
+            backgroundImage: `url('${placeholder0}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transform:
-              currentImageIndex === index && isInitialized
-                ? `scale(1.15)`
-                : `scale(1.0)`,
-            transition:
-              currentImageIndex === index
-                ? "transform 8s ease-out"
-                : "transform 0s",
+            filter: "blur(20px)",
+            transform: "scale(1.1)", // Slightly larger to hide blur edges
           }}
         />
+      )}
+
+      {/* Hero Images */}
+      {heroImages.map((image, index) => (
+        <div key={image} className="absolute w-full h-full">
+          <Image
+            src={image}
+            alt={`Hero image ${index + 1}`}
+            fill
+            priority={index === 0} // Prioritize first image
+            placeholder="blur"
+            blurDataURL={placeholder0}
+            className={`object-cover transition-opacity duration-2000 ${
+              currentImageIndex === index && imagesLoaded[index]
+                ? "opacity-100"
+                : "opacity-0"
+            }`}
+            style={{
+              transform:
+                currentImageIndex === index && isInitialized
+                  ? "scale(1.15)"
+                  : "scale(1.0)",
+              transition:
+                currentImageIndex === index
+                  ? "transform 8s ease-out"
+                  : "transform 0s",
+            }}
+            onLoad={() => {
+              if (index === 0) {
+                setFirstImageLoaded(true);
+              }
+            }}
+          />
+        </div>
       ))}
 
       {/* Dark Overlay */}
