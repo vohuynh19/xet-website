@@ -868,7 +868,7 @@ const CuisineSection = ({ scrollY }: { scrollY: number }) => {
                               {dish.nameEn}
                             </h4>
                             <p className="text-sm md:text-base leading-relaxed text-white/85 group-hover:text-white/95 transition-colors duration-300">
-                              {dish.nameVi}
+                              {dish.descriptionEn}
                             </p>
                           </div>
                         </div>
